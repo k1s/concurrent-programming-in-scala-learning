@@ -1,20 +1,20 @@
-package org.learningconcurrency
-package exercises
-package ch2
+package org.learningconcurrency.exercises.ch2
 
-object Ex2 extends App {
+/**
+  * Implement	a	 periodically 	method,	which	takes	a	time	interval	 duration 	specified
+  * in	milliseconds,	and	a	computation	block	 b .	The	method	starts	a	thread	that	executes
+  * the	computation	block	 b 	every	 duration 	milliseconds
+  *
+  */
+object ex2 {
 
-  def periodically(duration: Long)(f: () => Unit): Unit = {
-    val worker = new Thread {
+  def periodically(duration: Long)(b: => Unit): Unit = {
+    val t = thread {
       while (true) {
-        f()
+        b
         Thread.sleep(duration)
       }
     }
-
-    worker.setName("Worker")
-    worker.setDaemon(true)
-    worker.start()
   }
 
 }

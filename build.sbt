@@ -13,7 +13,7 @@ resolvers ++= Seq(
   "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
 )
 
-fork := false
+fork := true
 
 libraryDependencies += "commons-io" % "commons-io" % "2.4"
 
@@ -44,3 +44,6 @@ libraryDependencies += "org.scalafx" %% "scalafx" % "1.0.0-R8"
 unmanagedJars in Compile += Attributed.blank(file(scala.util.Properties.javaHome) / "/lib/jfxrt.jar")
 
 libraryDependencies += "com.storm-enroute" %% "reactive-collections" % "0.5"
+
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"

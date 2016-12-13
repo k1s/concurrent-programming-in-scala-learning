@@ -1,16 +1,19 @@
-package org.learningconcurrency
-package exercises
-package ch1
+package org.learningconcurrency.exercises.ch1
 
-object Ex1a extends App {
+/**
+ * Implement	a	 compose	 method	with	the	following	signature:
+ * def	compose[A,	B,	C](g:	B	=>	C,	f:	A	=>	B):	A	=>	C	=	???
+ * This	method	must	return	a	function	 h ,	which	is	the	composition	of	the	functions	 f 	and
+ * g .
+ */
+object ex1 {
 
-  def compose[A, B, C](g: B => C, f: A => B): A => C = x => g(f(x))
+  def	compose1[A,	B,	C](g:	B	=>	C,	f:	A	=>	B):	A	=>	C	=	f andThen g
+
+  def	compose2[A,	B,	C](g:	B	=>	C,	f:	A	=>	B):	A	=>	C	=	g compose f
+
+  def	compose3[A,	B,	C](g:	B	=>	C,	f:	A	=>	B):	A	=>	C	=	x => g(f(x))
 
 }
 
 
-object Ex1b extends App {
-
-  def compose[A, B, C](g: B => C, f: A => B): A => C = g compose f
-
-}

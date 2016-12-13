@@ -28,7 +28,7 @@ object VolatileScan extends App {
   val document: Seq[String] = for (i <- 1 to 5) yield "lorem ipsum " * (1000 - 200 * i) + "Scala"
   var results = Array.fill(document.length)(-1)
   @volatile var found = false
-  val threads = for (i <- 0 until document.length) yield thread {
+  val threads = for (i <- document.indices) yield thread {
     def scan(n: Int, words: Seq[String], query: String): Unit =
       if (words(n) == query) {
         results(i) = n
@@ -51,19 +51,12 @@ object VolatileUnprotectedUid extends App {
     freshUid
   }
 
-  def printUniqueIds(n: Int): Unit = {
-    val uids = for (i <- 0 until n) yield getUniqueId()
-    log(s"Generated uids: $uids")
+  def uniqueIds(n: Int): Seq[Long] = {
+    val seq = for (i <- 0 until n) yield getUniqueId()
+    seq
   }
-
-  val t = thread {
-    printUniqueIds(5)
-  }
-  printUniqueIds(5)
-  t.join()
 
 }
-
 
 object VolatileSharedStateAccess extends App {
   for (i <- 0 until 10000) {
