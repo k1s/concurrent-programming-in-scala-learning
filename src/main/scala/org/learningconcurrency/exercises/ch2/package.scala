@@ -7,11 +7,11 @@ package org.learningconcurrency.exercises
 package object ch2 {
 
   /**
-   * Create and start thread with <b>body</b> function
-   */
+    * Create and start thread with <b>body</b> function
+    */
   def thread(body: => Unit): Thread = {
-    val t = new Thread{
-      override def run() = body
+    val t = new Thread {
+      override def run(): Unit = body
     }
     t.start()
     t
