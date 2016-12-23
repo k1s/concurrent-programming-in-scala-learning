@@ -16,5 +16,4 @@ object ex5 {
         newString <- permutations(x.take(i) + x.drop(i+1))
       } yield x(i) + newString
   }
-
 }

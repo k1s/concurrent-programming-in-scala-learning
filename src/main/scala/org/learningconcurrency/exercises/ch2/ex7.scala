@@ -1,5 +1,7 @@
 package org.learningconcurrency.exercises.ch2
 
+import org.learningconcurrency.ch2.SynchronizedProtectedUid
+
 /**
   * The	 send 	method	in	the	Deadlocks	section	was	used	to	transfer	money	between	the
   * two	accounts.	The	 sendAll 	method	takes	a	set	 accounts 	of	bank	accounts	and	a
@@ -10,15 +12,32 @@ package org.learningconcurrency.exercises.ch2
   */
 object ex7 {
 
-  class Account(val name: String, var money: Int)
+  class Account(val name: String, var money: Int) {
+    val uid: Long = SynchronizedProtectedUid.getUniqueId()
 
-  def send(from: Account, to: Account, n: Int): Unit =
-    from.synchronized {
+    def getUid: Long = uid
+  }
+
+  def send(from: Account, to: Account, n: Int): Unit = {
+    def transfer(): Unit = {
+      from.money -= n
+      to.money += n
+    }
+
+    if (from.getUid < to.getUid) {
+      from.synchronized {
+        to.synchronized {
+          transfer()
+        }
+      }
+    } else {
       to.synchronized {
-        from.money -= n
-        to.money += n
+        from.synchronized {
+          transfer()
+        }
       }
     }
+  }
 
   def sendAll(accounts: Set[Account], target: Account): Unit = accounts.foreach(acc => send(acc, target, acc.money))
 
