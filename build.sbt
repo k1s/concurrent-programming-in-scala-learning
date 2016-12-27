@@ -2,9 +2,9 @@ name := "concurrency-examples"
 
 version := "1.0"
 
-scalaVersion in ThisBuild := "2.11.1"
+scalaVersion in ThisBuild := "2.12.1"
 
-ensimeScalaVersion in ThisBuild := "2.11.1"
+ensimeScalaVersion in ThisBuild := "2.12.1"
 
 resolvers ++= Seq(
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
