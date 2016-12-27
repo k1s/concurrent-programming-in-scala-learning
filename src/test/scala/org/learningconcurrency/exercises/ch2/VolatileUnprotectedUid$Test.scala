@@ -1,5 +1,6 @@
-package org.learningconcurrency.ch2
+package org.learningconcurrency.exercises.ch2
 
+import org.learningconcurrency.ch2.VolatileUnprotectedUid
 import org.scalatest.FunSuite
 
 /**

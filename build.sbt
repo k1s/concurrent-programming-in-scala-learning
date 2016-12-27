@@ -1,4 +1,3 @@
-
 name := "concurrency-examples"
 
 version := "1.0"
@@ -13,7 +12,7 @@ resolvers ++= Seq(
   "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
 )
 
-fork := true
+fork := false
 
 libraryDependencies += "commons-io" % "commons-io" % "2.4"
 
@@ -24,7 +23,7 @@ libraryDependencies += "com.github.scala-blitz" %% "scala-blitz" % "1.2"
 libraryDependencies += "com.netflix.rxjava" % "rxjava-scala" % "0.19.1"
 
 libraryDependencies += "org.scala-lang.modules" %% "scala-swing" % "1.0.1"
-            
+
 libraryDependencies += "org.scala-stm" %% "scala-stm" % "0.7"
 
 libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.2"
@@ -44,6 +43,3 @@ libraryDependencies += "org.scalafx" %% "scalafx" % "1.0.0-R8"
 unmanagedJars in Compile += Attributed.blank(file(scala.util.Properties.javaHome) / "/lib/jfxrt.jar")
 
 libraryDependencies += "com.storm-enroute" %% "reactive-collections" % "0.5"
-
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"

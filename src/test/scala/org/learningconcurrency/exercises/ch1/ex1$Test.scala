@@ -1,6 +1,8 @@
 package org.learningconcurrency.exercises.ch1
 
-class ex1$Test extends org.scalatest.FunSuite {
+import org.scalatest.FunSuite
+
+class ex1$Test extends FunSuite {
 
   test("compose") {
     val f1 = (x: Int) => x + x

@@ -1,6 +1,5 @@
 package org.learningconcurrency.exercises.ch3
 
-import org.learningconcurrency.exercises.ch2
 import org.scalatest.FunSuite
 
 /**
