@@ -2,7 +2,7 @@ name := "concurrency-examples"
 
 version := "1.0"
 
-scalaVersion in ThisBuild := "2.12.1"
+scalaVersion in ThisBuild := "2.11.8"
 
 resolvers ++= Seq(
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
@@ -41,3 +41,6 @@ libraryDependencies += "org.scalafx" %% "scalafx" % "1.0.0-R8"
 unmanagedJars in Compile += Attributed.blank(file(scala.util.Properties.javaHome) / "/lib/jfxrt.jar")
 
 libraryDependencies += "com.storm-enroute" %% "reactive-collections" % "0.5"
+
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"

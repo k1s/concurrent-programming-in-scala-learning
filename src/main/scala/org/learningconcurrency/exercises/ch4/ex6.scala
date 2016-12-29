@@ -1,6 +1,8 @@
 package org.learningconcurrency.exercises.ch4
 
-import scala.concurrent.Future
+import scala.concurrent._
+import scala.language.postfixOps
+import scala.sys.process._
 
 
 /**
@@ -12,6 +14,8 @@ import scala.concurrent.Future
   *
   */
 object ex6 {
+
+  import ExecutionContext.Implicits.global
 
   def	spawn(command:	String):	Future[Int] = Future {
     blocking {
