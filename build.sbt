@@ -44,3 +44,6 @@ libraryDependencies += "com.storm-enroute" %% "reactive-collections" % "0.5"
 
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+libraryDependencies += "com.typesafe.akka" %% "akka-testkit" % "2.3.2" % "test"
+
+libraryDependencies += "com.quantifind" %% "wisp" % "0.0.4"

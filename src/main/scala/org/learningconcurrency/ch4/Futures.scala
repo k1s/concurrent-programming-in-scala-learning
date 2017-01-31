@@ -1,9 +1,7 @@
 package org.learningconcurrency
 package ch4
 
-
-
-
+import scala.util.Failure
 
 
 object FuturesComputation extends App {
@@ -182,6 +180,7 @@ object FuturesMap extends App {
 
   longestBuildLine onComplete {
     case Success(line) => log(s"the longest line is '$line'")
+    case Failure(_) =>
   }
 
   longestGitignoreLine.failed foreach {
